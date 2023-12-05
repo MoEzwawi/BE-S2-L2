@@ -22,6 +22,7 @@ public class Main {
         } catch (NumberFormatException ex) {
             System.err.println("Inserisci un numero");
         }
+        input.close();
         boolean tf;
         if(bool==2)tf=false;
         else tf=true;

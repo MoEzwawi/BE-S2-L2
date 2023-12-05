@@ -25,6 +25,7 @@ public class Main {
                 if(myArray[j].equals(currentWord)) setDiParoleDuplicate.add(currentWord);
             }
         }
+        input.close();
         logger.info("Le parole sono: "+Arrays.toString(myArray));
         Set<String> setDiParole = new HashSet<>(Arrays.asList(myArray));
         logger.info("Numero di parole distinte: " + String.valueOf(setDiParole.size()));
