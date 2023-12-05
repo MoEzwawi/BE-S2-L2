@@ -9,6 +9,7 @@ public class Main {
         List<Integer> randomIntegers = giveMeOrderedRandomList(numberOfElems);
         System.out.println("Ecco un lista ordinata di "+numberOfElems+" interi: " +randomIntegers.toString());
         List<Integer> upAndDown = montagnaRussa(randomIntegers);
+        System.out.println("Ecco la lista che sale e scende: "+upAndDown);
         System.out.println("Quante discese ti vuoi fare sulla montagna russa?");
         int num = Integer.parseInt(input.nextLine());
         List<Integer> repeatedUpAndDown = duplicateAndMerge(upAndDown,num);
@@ -35,7 +36,7 @@ public class Main {
         List<Integer> randomIntegers = new ArrayList<>();
         for(int i=0;i<n;i++){
             Random rndm = new Random();
-            randomIntegers.add(rndm.nextInt(16));
+            randomIntegers.add(rndm.nextInt(11));
         }
         Collections.sort(randomIntegers);
         return randomIntegers;
@@ -61,7 +62,6 @@ public class Main {
         }
     }
     private static void drawGraph(List<Integer> list){
-        System.out.println("Ecco la montagna russa:");
         for(int i=0;i<list.size();i++){
             String str = "";
             for(int j=0;j<list.get(i);j++){
@@ -69,6 +69,7 @@ public class Main {
             }
             System.out.println(str);
         }
+        System.out.println("Ecco la montagna russa!");
     }
     private static List duplicateAndMerge(List list,int n){
         List l = new ArrayList<>();
