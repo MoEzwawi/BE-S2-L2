@@ -13,7 +13,7 @@ public class Main {
         System.out.println("Quante discese ti vuoi fare sulla montagna russa?");
         int num = Integer.parseInt(input.nextLine());
         List<Integer> repeatedUpAndDown = duplicateAndMerge(upAndDown,num);
-        drawGraph(repeatedUpAndDown);
+        plotGraphDetail(repeatedUpAndDown);
         int bool=0;
         System.out.println("Premi 1 per gli elementi in posizione dispari");
         System.out.println("Premi 2 per gli elementi in posizione pari");
@@ -47,7 +47,8 @@ public class Main {
         rollerCoasterList.addAll(list);
         Collections.sort(list,Collections.reverseOrder());
         rollerCoasterList.addAll(list);
-        rollerCoasterList.remove(Math.floor((double) rollerCoasterList.size() /2));
+        int centerIndex = rollerCoasterList.size()/2;
+        rollerCoasterList.remove(centerIndex);
         return rollerCoasterList;
     }
     private static void pariODispari(List<Integer> list, boolean b){
@@ -61,6 +62,8 @@ public class Main {
             }
         }
     }
+
+    //Sorry drawGraph ma ti mando in pensione :')
     private static void drawGraph(List<Integer> list){
         for(int i=0;i<list.size();i++){
             String str = "";
@@ -77,5 +80,17 @@ public class Main {
             l.addAll(list);
         }
         return l;
+    }
+    private static void plotGraphDetail(List list){
+        System.out.println("Ecco la montagna russa:");
+        int maxElem = (Integer) Collections.max(list);
+        for (int i=maxElem;i>0;i--){
+            String str = "";
+            for (int j=0;j<list.size();j++){
+                if ((int)list.get(j)>=i) str += " * ";
+                else str += "   ";
+            }
+            System.out.println(str);
+        }
     }
 }
